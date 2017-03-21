@@ -41,11 +41,13 @@ var skipCopyFile = map[string]bool{
 }
 
 func main() {
-	buildDir := os.Args[1]
-	cacheDir := os.Args[2]
-
-	compiler, err := bp.NewCompiler(buildDir, cacheDir, bp.NewLogger())
+	compiler, err := bp.NewCompiler(os.Args[1:], bp.NewLogger())
 	err = compiler.CheckBuildpackValid()
+	if err != nil {
+		panic(err)
+	}
+
+	err = compiler.LoadSuppliedDeps()
 	if err != nil {
 		panic(err)
 	}
