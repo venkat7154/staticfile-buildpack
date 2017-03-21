@@ -47,6 +47,10 @@ func main() {
 		panic(err)
 	}
 
+	fmt.Printf("args: %s\n", os.Args[1:])
+	fmt.Printf("buildDir: %s\n", compiler.BuildDir)
+	fmt.Printf("depsDir: %s\n", compiler.DepsDir)
+
 	err = compiler.LoadSuppliedDeps()
 	if err != nil {
 		panic(err)
