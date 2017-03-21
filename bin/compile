@@ -39,4 +39,4 @@ fi
 unset GOROOT
 unset GOPATH
 
-$output_dir/compile $BUILD_DIR $CACHE_DIR $ENV_DIR $DEPS_DIR
+$output_dir/compile "$BUILD_DIR" "$CACHE_DIR" "$ENV_DIR" "$DEPS_DIR"
